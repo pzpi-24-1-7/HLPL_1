@@ -35,3 +35,15 @@ print(even_nums(array))
 # Завдання 4
 # 2.	Реалізуйте програму для роботи з API. Використовуйте бібліотеку requests, щоб отримати дані з публічного API та вивести їх на екран.
 
+import requests
+
+url = "https://catfact.ninja/fact"
+
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()   
+    print("Факт про кітиків:", data['fact'])
+
+else:
+    print("Помилка. Код:", response.status_code)
